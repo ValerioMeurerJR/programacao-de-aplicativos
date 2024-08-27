@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx ./src/index.ts",
+    "Atividades01": "tsx ./src/Atividades01.ts"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +12,8 @@
   "description": "",
   "dependencies": {
     "@types/node": "^22.4.1",
+    "@types/readline-sync": "^1.4.8",
+    "readline-sync": "^1.4.10",
     "tsup": "^8.2.4",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4"
