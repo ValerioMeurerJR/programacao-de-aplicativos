@@ -1,36 +1,12 @@
-import leia from "readline-sync";
-import { Celular } from "./repository/CelularRepository";
-import { cadastraPessoa, Pessoa } from "./repository/PessoaRepository";
+import Cachorro from "./Cachorro";
+import Dono from "./Dono";
 
-var cor = leia.question("INFORME A COR DO CELULAR: ");
-var marca = leia.question("INFORME A MARCA DO CELULAR: ");
+var dono = new Dono("Valerio", "(47) 9 8499-5555");
 
-var tamanho = leia.questionFloat("INFORME A TAMANHO DO CELULAR: ");
-var modelo = leia.question("INFORME A MODELO DO CELULAR: ");
-
-var celular: Celular = {
-    cor,
-    marca,
-    tamanhotTela: tamanho,
-    modelo
-}
-
-var nome = leia.question("INFORME A NOME: ");
-var cpf = leia.question("INFORME A CPF: ");
-var dataNascimento = leia.question("INFORME A DATA DE NASCIMENTO: ");
-var telefone = leia.question("INFORME O TELEFONE: ");
-var email = leia.question("INFORME O EMAILS: ");
-
-const pessoa: Pessoa = {
-    nome,
-    cpf,
-    dataNascimento,
-    contatos: {
-        telefones: [telefone],
-        emails: [email]
-    },
-    celular,
-}
-
-cadastraPessoa(pessoa);
-
+var c1 = new Cachorro("Cidi", "Sao Bernardo", "Caramelo", "M", "Grande", dono );
+c1.exibirCachorro();
+c1.exbirDono();
+console.log("\n")
+var c2 = new Cachorro("Terrorista", "Vira-Lata", "Preto", "F", "Pequeno", dono);
+c2.exibirCachorro();
+c2.exbirDono();
