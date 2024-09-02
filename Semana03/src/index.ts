@@ -5,13 +5,13 @@ import leia from "readline-sync"
 const atividades = [
     "Sacar",
     "Depositar",
-    "Ver saldo",
-    "Sair"
+    "Ver saldo"
 
 ]
+var cb1 = new ContaBancaria(new Titular("Valerio", "000.000.000-00", "47998558854", "valerio@gmail.com"));
 var sair = true;
 while (sair) {
-    var cb1 = new ContaBancaria(new Titular("Valerio", "000.000.000-00", "47998558854", "valerio@gmail.com"));
+   
     var Opcao = leia.keyInSelect(atividades, 'ESCOLHA UMA OPÇÃO: ')
     switch (Opcao) {
         case 0:
