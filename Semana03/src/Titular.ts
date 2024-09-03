@@ -5,8 +5,33 @@ export default class Titular {
         this.email = email;
         this.cpf = cpf;
     }
-    nome: string;
-    telefone: string;
-    email: string;
-    cpf: string
+    private nome: string;
+    private telefone: string;
+    private email: string;
+    private cpf: string
+
+    public getNome(): string{
+        return this.nome;
+    }
+    public setNome(valor: string): void{
+        this.nome = valor;
+    }
+    public getTelefone(): string{
+        return this.telefone;
+    }    
+    public setTelefone(valor: string): void{
+        this.telefone = valor;
+    }
+    public getEmail(): string{
+        return this.email;
+    }  
+    public setEmail(valor: string): void{
+        this.email = valor;
+    }  
+    public getCpf(): string{
+        return this.cpf;
+    }
+    public setCpf(valor: string): void{
+        this.cpf = valor;
+    }
 }
