@@ -54,61 +54,66 @@ export default class Banco {
 
     }
     private transferir(NumeroConta: number) {
-        var numeroContaTras = leia.question("INFOME O NUMERO DA CONTA PARA TRANSFERIR: ");
+        var NumeroContaDestino = leia.question("INFOME O NUMERO DA CONTA PARA TRANSFERIR: ");
+        var indexDestino = this.contas.findIndex(conta => conta.getNumero() === NumeroContaDestino);
+        if (indexDestino !== -1) {
+            console.log("CONTA DE DESTINO NAO ENCONTRADO.");
+            return;
+        }
         var valor = leia.questionFloat("INFOME O VALOR: ");
         if (this.contas[NumeroConta].sacarTrans(valor)) {
-            for (var a = 0; a < this.contas.length; a++) {
-                if (numeroContaTras === this.contas[a].getNumero()) {
-                    this.contas[a].depositarTrans(valor);
-                }
-            }
+            this.contas[indexDestino].depositarTrans(valor);
         }
     }
 
     public AcessarConta() {
-        console.log("---------------DELETAR CONTA-------------------")
         var numeroConta = leia.question("DIGITE O NUMERO DA CONTA: ")
+        var indexConta = this.contas.findIndex(conta => conta.getNumero() === numeroConta);
+        if (indexConta !== -1) {
+            console.log("CONTA DE NAO ENCONTRADO.");
+            return;
+        }
+        console.log("---------------MENU DA CONTA-------------------")
         const atividades = [
             "Sacar",
             "Depositar",
             "Ver saldo",
             "Mostrar Dados da conta",
             "Exibir chave PIX",
-            "Trasferencia"
+            "Transferencia"
         ]
 
-        for (var i = 0; i < this.contas.length; i++) {
-            if (numeroConta === this.contas[i].getNumero()) {
-                var sair = true;
-                while (sair) {
+        for (var indexConta = 0; indexConta < this.contas.length; indexConta++) {
+            if (numeroConta === this.contas[indexConta].getNumero()) {
+                do {
                     var Opcao = leia.keyInSelect(atividades, 'ESCOLHA UMA OPÇÃO: ') + 1
                     switch (Opcao) {
                         case 1:
                             var valor = leia.questionFloat("Informe o valor para sacar: ");
-                            this.contas[i].sacar(valor);
+                            this.contas[indexConta].sacar(valor);
                             break;
                         case 2:
                             var valor = leia.questionFloat("Informe o valor para depositar: ");
-                            this.contas[i].depositar(valor);
+                            this.contas[indexConta].depositar(valor);
                             break;
                         case 3:
-                            this.contas[i].consultarSaldo();
+                            this.contas[indexConta].consultarSaldo();
                             break;
                         case 4:
-                            this.contas[i].mostrarDadosConta();
+                            this.contas[indexConta].mostrarDadosConta();
                             break;
                         case 5:
-                            this.contas[i].exibirChavePix();
+                            this.contas[indexConta].exibirChavePix();
                             break;
                         case 6:
-                            this.transferir(i);
+                            this.transferir(indexConta);
                             break;
                         default:
                             console.log("VOCE ESCOLHEU SAIR");
-                            sair = false;
                             break;
                     }
-                }
+
+                } while (Opcao !== 0);
             }
         }
     }

@@ -6,7 +6,6 @@ import Titular from "./Titular";
 import leia from "readline-sync"
 
 var Conta = new ContaBancaria(new Titular("", "", ""));
-var sairBanco = true;
 var nuBank = new Banco();
 do {
     console.log("---------------MENU-------------------")
@@ -25,9 +24,10 @@ do {
             nuBank.mostrarContas();
             break;
         default:
-            var sairBanco = false;
+            console.log("VOCE ESCOLHEU SAIR");
+            break;
     }
-} while (sairBanco);
+} while (Menu !== 0);
 
 
 
