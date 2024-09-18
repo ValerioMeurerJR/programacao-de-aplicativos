@@ -56,7 +56,7 @@ export default class Banco {
     private transferir(NumeroConta: number) {
         var NumeroContaDestino = leia.question("INFOME O NUMERO DA CONTA PARA TRANSFERIR: ");
         var indexDestino = this.contas.findIndex(conta => conta.getNumero() === NumeroContaDestino);
-        if (indexDestino !== -1) {
+        if (indexDestino === -1) {
             console.log("CONTA DE DESTINO NAO ENCONTRADO.");
             return;
         }
@@ -69,7 +69,7 @@ export default class Banco {
     public AcessarConta() {
         var numeroConta = leia.question("DIGITE O NUMERO DA CONTA: ")
         var indexConta = this.contas.findIndex(conta => conta.getNumero() === numeroConta);
-        if (indexConta !== -1) {
+        if (indexConta === -1) {
             console.log("CONTA DE NAO ENCONTRADO.");
             return;
         }
