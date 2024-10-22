@@ -40,7 +40,6 @@ function render() {
         const concluir = document.createElement("span");
         concluir.textContent = "task_list"
         concluir.classList.add("check")
-        concluir.classList.add("material-symbols-outlined")
         concluir.setAttribute("onclick", `tootle(${tarefa.id});`)
         
 
